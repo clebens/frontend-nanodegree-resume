@@ -4,7 +4,7 @@ bio.display = function() {
   var formattedRole = HTMLheaderRole.replace("%data%", role); 
   $("#header").prepend(formattedName + formattedRole);
 
-  ci = bio.contactInfo;
+  ci = bio.contacts;
   cdata = HTMLmobile.replace("%data%", ci.mobile);
   cdata += HTMLemail.replace("%data%", ci.email);
   cdata += HTMLtwitter.replace("%data%", ci.twitter);
@@ -113,3 +113,4 @@ education.display = function() {
 
 education.display();
 
+$("#mapDiv").append(googleMap);

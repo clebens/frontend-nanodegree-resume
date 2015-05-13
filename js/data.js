@@ -4,7 +4,7 @@ var fullName = firstName + " " + lastName;
 
 var role = "Software Developer";
 
-var contactInfo = {
+var contact = {
     "mobile": "(402) 639-2755",
     "email": "colin.lebens@gmail.com",
     "github": "http://github.com/clebens",
@@ -24,7 +24,7 @@ var skills = [
 var bio = {
     "name": fullName,
     "role": role,
-    "contactInfo": contactInfo,
+    "contacts": contact,
     "biopic": "images/me.jpg",
     "welcomeMessage": "Hello!",
     "skills": skills
