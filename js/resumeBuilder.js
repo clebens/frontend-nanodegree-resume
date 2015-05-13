@@ -26,7 +26,7 @@ bio.display = function() {
 bio.display();
 
 
-function insertJob(job) {
+work.insertJob = function(job) {
         $('#workExperience').append(HTMLworkStart);
         var formattedEmployer = HTMLworkEmployer.replace("%data%", job['employer']);
         var formattedTitle = HTMLworkTitle.replace("%data%", job['title']);
@@ -40,21 +40,13 @@ function insertJob(job) {
                                      formattedDescription);
 }
     
-function generateJobs() {
+work.display = function() {
     work.jobs.forEach( function(job) {
-        insertJob(job);
+        work.insertJob(job);
     });
 }
 
-function showJobs() {
-    $('#workExperience').show();
-}
-
-function hideJobs() {
-    $('#workExperience').hide();
-}
-
-generateJobs();
+work.display();
 
 $(document).click(function(loc) {
     logClicks(loc.clientX, loc.clientY);
@@ -63,7 +55,7 @@ $(document).click(function(loc) {
 $("#main").append(internationalizeButton);
 
 
-function insertProject(project) {
+projects.insertProject = function(project) {
   $('#projects').append(HTMLprojectStart);
   var title = HTMLprojectTitle.replace("%data%", project.title);
   var dates = HTMLprojectDates.replace("%data%", project.dates);
@@ -74,13 +66,13 @@ function insertProject(project) {
 
 projects.display = function() {
     this.projects.forEach(function(project) {
-      insertProject(project);
+      projects.insertProject(project);
     });
 };
 
 projects.display();
 
-function insertSchool(item) {
+education.insertSchool = function(item) {
     console.log(item);
     $("#education").append(HTMLschoolStart);
     data = "";
@@ -94,7 +86,7 @@ function insertSchool(item) {
     $('.education-entry').last().append(data);
 } 
 
-function insertOnlineCourse(item) {
+education.insertOnlineCourse = function(item) {
     $("#education").append(HTMLschoolStart);
     data = HTMLonlineTitle.replace("%data%", item.title).replace("#", item.url);
     data += HTMLonlineSchool.replace("%data%", item.school);
@@ -108,13 +100,13 @@ function insertOnlineCourse(item) {
 education.display = function() {
 
   education.schools.forEach(function(item) {
-    insertSchool(item);
+    education.insertSchool(item);
   });
 
   $("#education").append(HTMLonlineClasses);
   
   education.onlineCourses.forEach(function(item) {
-    insertOnlineCourse(item);
+    education.insertOnlineCourse(item);
   });
 
 }
